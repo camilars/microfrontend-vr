@@ -1,8 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import federation from "@originjs/vite-plugin-federation";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/",
   plugins: [
     react(),
     federation({
@@ -22,7 +24,14 @@ export default defineConfig({
     port: 3003,
   },
 
+  preview: {
+    port: 3003,
+  },
+
   build: {
     target: 'esnext',
+    modulePreload: false,
+    cssCodeSplit: false,
+    minify: false,
   },
 })

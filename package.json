@@ -1,0 +1,25 @@
+{
+  "name": "microfrontend-vr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently -n HEADER,FOOTER,CARDS,SHELL -c blue,green,yellow,magenta \"cd header && npm run preview\" \"cd footer && npm run preview\" \"cd cards && npm run preview\" \"cd shell && npm run dev\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camilars/microfrontend-vr.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/camilars/microfrontend-vr/issues"
+  },
+  "homepage": "https://github.com/camilars/microfrontend-vr#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
