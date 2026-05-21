@@ -7,6 +7,9 @@ import {
   getProducts,
 } from './shared/services/products'
 
+import "./Cards.css"
+import cart from './assets/cart.png'
+
 export default function Cards({
   addToCart,
 }) {
@@ -43,7 +46,7 @@ export default function Cards({
   }
 
   return (
-    <main>
+    <main className="container">
       <section className="products-grid">
         {products.map(product => (
           <article
@@ -61,11 +64,9 @@ export default function Cards({
               R$ {product.price}
             </p>
 
-            <button
-              onClick={() =>
-                addToCart(product)
-              }
-            >
+            <button 
+              onClick={() =>addToCart(product)}>
+              {/* <img src={cart}/> */}
               Adicionar
             </button>
           </article>

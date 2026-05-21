@@ -29,14 +29,14 @@ function AppContent() {
   return (
     <Suspense fallback={<p>Loading...</p>}>
       <Header
-        cart={cart}
+        cart={[...cart]}
         removeFromCart={removeFromCart}
       />
-
       <Cards addToCart={addToCart} />
 
       <Footer />
     </Suspense>
+    
   )
 }
 

@@ -3,8 +3,10 @@ export default function Modal({
   onClose,
 }) {
   return (
-    <div className="overlay">
+    <div className="modal-overlay">
       <div className="modal">
+        {children}
+        
         <button
           className="close"
           onClick={onClose}
@@ -12,7 +14,6 @@ export default function Modal({
           X
         </button>
 
-        {children}
       </div>
     </div>
   )

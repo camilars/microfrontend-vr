@@ -1,0 +1,194 @@
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s ease;
+  width: 100%;
+}
+
+.card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.card h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.2;
+  margin: 18px 18px 12px;
+  transition: 0.2s ease;
+}
+
+.card h3:hover {
+  color: #d97782;
+}
+
+.card p {
+  font-size: 1.2rem;
+  color: #444;
+  margin: 0 18px 20px;
+}
+
+.card button {
+  margin: auto 18px 18px;
+  background: #d97782;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.card button:hover {
+  background: #c86672;
+}
+
+@media (min-width: 565px) {
+
+  .card {
+    width: calc(50% - 12px);
+  }
+}
+
+@media (min-width: 1200px) {
+
+  .card {
+    width: calc(25% - 18px);
+  }
+}
+
+
+/* .products-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(260px, 1fr));
+
+  gap: 24px;
+}
+
+.product-card {
+
+  background: white;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 4px 16px rgba(0,0,0,0.08);
+
+  transition: 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.product-image {
+  width: 100%;
+  height: 220px;
+
+  object-fit: cover;
+}
+
+.product-content {
+  padding: 20px;
+}
+
+.product-title {
+
+  font-size: 1.1rem;
+
+  margin-bottom: 10px;
+
+  color: #111827;
+}
+
+.product-description {
+
+  font-size: 0.95rem;
+
+  color: #6b7280;
+
+  margin-bottom: 16px;
+
+  line-height: 1.4;
+
+  display: -webkit-box;
+
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+.product-footer {
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-price {
+
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  color: #111827;
+}
+
+.add-button {
+
+  background: #111827;
+  color: white;
+
+  padding: 10px 16px;
+
+  border-radius: 10px;
+
+  font-weight: bold;
+}
+
+.add-button:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+
+  .products-grid {
+    gap: 16px;
+  }
+
+  .product-image {
+    height: 180px;
+  }
+
+  .product-content {
+    padding: 16px;
+  }
+} */
