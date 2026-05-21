@@ -24,6 +24,8 @@ function AppContent() {
     cart,
     addToCart,
     removeFromCart,
+    incrementItem,
+    decrementItem,
   } = useCart()
 
   return (
@@ -31,6 +33,8 @@ function AppContent() {
       <Header
         cart={[...cart]}
         removeFromCart={removeFromCart}
+        incrementItem={incrementItem}
+        decrementItem={decrementItem}
       />
       <Cards addToCart={addToCart} />
 

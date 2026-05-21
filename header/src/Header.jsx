@@ -5,14 +5,20 @@ import "./Header.css"
 export default function Header({
   cart,
   removeFromCart,
+  incrementItem,
+  decrementItem,
 }) {
   const [open, setOpen] = useState(false)
   console.log("HEADER CART", cart)
 
-  const cartCount = cart?.length || 0
+  const cartCount = (cart || []).reduce(
+    (acc, item) => acc + item.quantity,
+    0
+  )
 
   const total = (cart || []).reduce(
-    (acc, item) => acc + item.price,
+    (acc, item) =>
+      acc + (item.price * item.quantity),
     0
   )
 
@@ -32,7 +38,9 @@ export default function Header({
       </button>
 
       {open && (
-        <Modal onClose={() => setOpen(false)}>
+        <Modal
+          key={cart.map(item => `${item.id}-${item.quantity}`).join()}
+          onClose={() => setOpen(false)}>
           <h2>Carrinho</h2>
 
           {(cart || []).length === 0 && (
@@ -52,9 +60,38 @@ export default function Header({
                 <p>
                   R$ {item.price}
                 </p>
+
+                <span className="quantity" key={item.quantity}>
+                  Quantidade: {item.quantity}
+                </span>
               </div>
 
-              <button onClick={() => removeFromCart(item.id)}>remover</button>
+              <div className="actions">
+
+                <button
+                  onClick={() => decrementItem(item.id)}
+                >
+                  -
+                </button>
+
+                <span>
+                  {item.quantity}
+                </span>
+
+                <button
+                  onClick={() => incrementItem(item.id)}
+                >
+                  +
+                </button>
+
+                <button
+                  className="remove"
+                  onClick={() => removeFromCart(item.id)}
+                >
+                  excluir
+                </button>
+
+              </div>
             </div>
           ))}
 

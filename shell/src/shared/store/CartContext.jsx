@@ -23,8 +23,20 @@ function reducer(state, action) {
       if (exists) {
 
         return {
+
           ...state,
-          cart: [...state.cart],
+
+          cart: state.cart.map(item =>
+
+            item.id === action.payload.id
+
+              ? {
+                ...item,
+                quantity: item.quantity + 1,
+              }
+
+              : item
+          ),
         }
       }
 
@@ -33,9 +45,58 @@ function reducer(state, action) {
         ...state,
 
         cart: [
+
           ...state.cart,
-          { ...action.payload },
+
+          {
+            ...action.payload,
+            quantity: 1,
+          },
         ],
+      }
+    }
+
+    case 'INCREMENT_ITEM': {
+
+      return {
+
+        ...state,
+
+        cart: state.cart.map(item =>
+
+          item.id === action.payload
+
+            ? {
+              ...item,
+              quantity: item.quantity + 1,
+            }
+
+            : item
+        ),
+      }
+    }
+
+    case 'DECREMENT_ITEM': {
+
+      const updatedCart = state.cart
+        .map(item => {
+
+          if (item.id === action.payload) {
+
+            return {
+              ...item,
+              quantity: item.quantity - 1,
+            }
+          }
+
+          return item
+        })
+
+        .filter(item => item.quantity > 0)
+
+      return {
+        ...state,
+        cart: updatedCart,
       }
     }
 
@@ -76,12 +137,28 @@ export function CartProvider({ children }) {
     })
   }
 
+  function incrementItem(id) {
+    dispatch({
+      type: 'INCREMENT_ITEM',
+      payload: id,
+    })
+  }
+
+  function decrementItem(id) {
+    dispatch({
+      type: 'DECREMENT_ITEM',
+      payload: id,
+    })
+  }
+
   return (
     <CartContext.Provider
       value={{
         cart: state.cart,
         addToCart,
         removeFromCart,
+        incrementItem,
+        decrementItem,
       }}
     >
       {children}

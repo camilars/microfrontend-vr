@@ -36,6 +36,7 @@
   font-weight: 700;
   color: #2d2d2d;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  margin-right: 8px;
 }
 
 .header button:hover {
@@ -106,7 +107,7 @@
 
 .modal {
   width: 100%;
-  max-width: 520px;
+  max-width: 720px;
   background: #f8f8f8;
   border-radius: 8px;
   padding: 28px 24px 24px;
@@ -232,6 +233,73 @@
 
 .total-price span {
   color: #d97782;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.actions button {
+  border: none;
+  background: #d97782;
+  color: white;
+  min-width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions button:hover {
+  background: #c86672;
+}
+
+.actions span {
+  min-width: 24px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.actions .remove {
+  background: #2d2d2d;
+  padding: 0 14px;
+  width: auto;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.actions .remove:hover {
+  background: #1f1f1f;
+}
+
+.quantity {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .actions .remove {
+    flex: 1;
+  }
 }
 
 @media (max-width: 768px) {
