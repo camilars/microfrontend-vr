@@ -9,7 +9,6 @@ export default function Header({
   decrementItem,
 }) {
   const [open, setOpen] = useState(false)
-  console.log("HEADER CART", cart)
 
   const cartCount = (cart || []).reduce(
     (acc, item) => acc + item.quantity,
